@@ -1,0 +1,20 @@
+﻿@using ValidationForm.Models
+@model object
+
+@{
+    var meta = ViewData.ModelMetadata;
+    var id = meta.PropertyName;
+    var list = ViewData["SelectList"] as IEnumerable<SelectListItem>;
+    
+    foreach(var item in list)
+    {
+        item.Selected = item.Value == Model.ToString();
+    }
+}
+<div class="control-group">
+    @Html.LabelFor(m => m, new { @class="control-label" })
+    <div class="controls">
+        @Html.DropDownListFor(m => m, list)
+
+    </div>
+</div>

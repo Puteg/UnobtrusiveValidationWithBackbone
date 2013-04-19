@@ -1,0 +1,28 @@
+﻿@using ValidationForm.Models
+@model ValidationForm.Models.VMData
+
+
+
+<form class="form-horizontal" id="view">
+    <fieldset>
+        <legend>Стол желаний</legend>
+
+        @Html.EditorFor(m => m.Model.WhishId, "EditorList", "WhishId", new { SelectList = Model.ListState })
+        @Html.EditorFor(m => m.Model.FIO, "EditorText", "FIO")
+        @Html.EditorFor(m => m.Model.Phone, "EditorNumber", "Phone")
+        @Html.EditorFor(m => m.Model.Email, "EditorText", "Email")
+
+        <input type="submit" class="btn" value="Отправить" />
+    </fieldset>
+</form>
+
+@section Scripts {
+
+    <script src="~/js/ext-jquery.js"></script>
+    <script src="~/js/validator.js"></script>
+    <script>
+        App={};
+    </script>
+    <script src="~/js/app.js"></script>
+
+}
